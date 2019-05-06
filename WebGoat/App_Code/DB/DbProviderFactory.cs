@@ -25,6 +25,8 @@ namespace OWASP.WebGoat.NET.App_Code.DB
                     return new MySqlDbProvider(configFile);
                 case DbConstants.DB_TYPE_SQLITE:
                     return new SqliteDbProvider(configFile);
+                case DbConstants.DB_TYPE_SQLSERVER:
+                    return new SqlServerDbProvider(configFile);
                 default:
                     throw new Exception(string.Format("Don't know Data Provider type {0}", dbType));
             }
