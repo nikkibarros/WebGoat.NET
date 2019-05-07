@@ -9,7 +9,7 @@ namespace OWASP.WebGoat.NET.App_Code.DB
 {
     public class SqlServerDbProvider : IDbProvider
     {
-        private readonly string _connectionString;
+        private string _connectionString;
         private readonly string _host;
         private readonly string _port;
         private readonly string _pwd;
@@ -36,9 +36,8 @@ namespace OWASP.WebGoat.NET.App_Code.DB
             }
             else
             {
-                _connectionString = string.Format("Server={0};Database={1};Trusted_Connection=True;MultipleActiveResultSets=true;",
-                                                 configFile.Get(DbConstants.KEY_HOST),
-                                                 configFile.Get(DbConstants.KEY_DATABASE));
+                _connectionString = string.Format("Server={0};Trusted_Connection=True;MultipleActiveResultSets=true;",
+                                                 configFile.Get(DbConstants.KEY_HOST));
             }
 
             _uid = configFile.Get(DbConstants.KEY_UID);
@@ -455,24 +454,51 @@ namespace OWASP.WebGoat.NET.App_Code.DB
 
         public bool RecreateGoatDb()
         {
-            string args;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
 
-            if (string.IsNullOrEmpty(_pwd))
-                args = string.Format("-S '{0}' -d '{1}'",
-                        _host, _database);
-            else
-                args = string.Format("--user={0} --password={1} --database={2} --host={3} --port={4} -f",
-                        _uid, _pwd, _database, _host, _port);
+                    // Check if database exists
+                    string script = "SELECT database_id FROM sys.databases WHERE Name = '" + _database + "'";
+                    SqlCommand cmd = new SqlCommand(script, connection);
+                    object result = cmd.ExecuteScalar();
 
-            log.Info("Running recreate");
+                    if (result == null)
+                    {
+                        // Create database if not existing
+                        script = "CREATE DATABASE [" + _database + "]";
+                        cmd = new SqlCommand(script, connection);
+                        cmd.ExecuteNonQuery();
+                    }
 
-            string script = Path.Combine(Settings.RootDir, DbConstants.DB_CREATE_SQLSERVER_SCRIPT);
-            int retVal1 = Math.Abs(Util.RunProcessWithInput(_clientExec, args, script));
+                    // Drop and create database tables
+                    string scriptPath = Path.Combine(Settings.RootDir, DbConstants.DB_CREATE_SQLSERVER_SCRIPT);
+                    script = File.ReadAllText(scriptPath);
+                    cmd = new SqlCommand(script, connection);
+                    cmd.ExecuteNonQuery();
 
-            script = Path.Combine(Settings.RootDir, DbConstants.DB_LOAD_SQLSERVER_SCRIPT);
-            int retVal2 = Math.Abs(Util.RunProcessWithInput(_clientExec, args, script));
+                    // Delete and insert seed data
+                    scriptPath = Path.Combine(Settings.RootDir, DbConstants.DB_LOAD_SQLSERVER_SCRIPT);
+                    script = File.ReadAllText(scriptPath);
+                    cmd = new SqlCommand(script, connection);
+                    cmd.ExecuteNonQuery();
 
-            return Math.Abs(retVal1) + Math.Abs(retVal2) == 0;
+                    connection.Close();
+                }
+
+                _connectionString = string.Format("Server={0};Database={1};Trusted_Connection=True;MultipleActiveResultSets=true;",
+                                                     _host,
+                                                     _database);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error recreating DB", ex);
+                return false;
+            }
         }
 
         public bool TestConnection()

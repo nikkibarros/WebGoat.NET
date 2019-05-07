@@ -26,27 +26,10 @@
 /* Recommended DATABASE name is classicmodels. */
 
 
-USE [master];
-
-
-GO
-
-IF (DB_ID(N'classicmodels') IS NOT NULL) 
-BEGIN
-    ALTER DATABASE [classicmodels]
-    SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE [classicmodels];
-END
-
-GO
-PRINT N'Creating classicmodels...'
-GO
-CREATE DATABASE [classicmodels]
-GO
 USE [classicmodels];
 
 
-GO
+
 
 /* DROP the existing tables. Comment this out if it is not needed. */
 

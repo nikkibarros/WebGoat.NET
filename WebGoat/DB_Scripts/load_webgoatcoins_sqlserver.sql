@@ -31,7 +31,7 @@
 USE [classicmodels];
 
 
-GO
+
 
 DELETE FROM Customers;
 DELETE FROM CustomerLogin;
@@ -50,41 +50,41 @@ DELETE FROM Comments;
 
 BULK INSERT Customers FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\customers_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT CustomerLogin FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\customerlogin_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT SecurityQuestions FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\securityquestions_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT Employees FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\employees_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT Offices FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\offices_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT OrderDetails FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\orderdetails_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT Orders FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\orders_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT Payments FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\payments_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT Categories FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\categories_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
 BULK INSERT Products FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\products_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
-GO
+
 
