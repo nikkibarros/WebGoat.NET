@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Reflection;
 
 namespace OWASP.WebGoat.NET.App_Code.DB
@@ -457,16 +458,19 @@ namespace OWASP.WebGoat.NET.App_Code.DB
             string args;
 
             if (string.IsNullOrEmpty(_pwd))
-                args = string.Format("--user={0} --database={1} --host={2} --port={3} -f",
-                        _uid, _database, _host, _port);
+                args = string.Format("-S '{0}' -d '{1}'",
+                        _host, _database);
             else
                 args = string.Format("--user={0} --password={1} --database={2} --host={3} --port={4} -f",
                         _uid, _pwd, _database, _host, _port);
 
             log.Info("Running recreate");
 
-            int retVal1 = Math.Abs(Util.RunProcessWithInput(_clientExec, args, DbConstants.DB_CREATE_SQLSERVER_SCRIPT));
-            int retVal2 = Math.Abs(Util.RunProcessWithInput(_clientExec, args, DbConstants.DB_LOAD_SQLSERVER_SCRIPT));
+            string script = Path.Combine(Settings.RootDir, DbConstants.DB_CREATE_SQLSERVER_SCRIPT);
+            int retVal1 = Math.Abs(Util.RunProcessWithInput(_clientExec, args, script));
+
+            script = Path.Combine(Settings.RootDir, DbConstants.DB_LOAD_SQLSERVER_SCRIPT);
+            int retVal2 = Math.Abs(Util.RunProcessWithInput(_clientExec, args, script));
 
             return Math.Abs(retVal1) + Math.Abs(retVal2) == 0;
         }
