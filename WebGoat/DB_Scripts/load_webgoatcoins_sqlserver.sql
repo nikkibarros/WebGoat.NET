@@ -13,7 +13,7 @@
  *
  *******************************************************************************/
 
-/* Loads the Classic Models tables using the MySQL LOAD command */
+/* Loads the Classic Models tables using the MSSQL BULK INSERT command */
 
 /* Preparing the load files for importing. Input file requirements:
      - Column order in the file must be the same as the columns in the table
@@ -48,43 +48,43 @@ DELETE FROM Comments;
 
 /* Load records into the tables. There should be no warnings.*/
 
-BULK INSERT Customers FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\customers_sqlserver.txt'
+BULK INSERT Customers FROM '{dataFilesPath}\customers_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT CustomerLogin FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\customerlogin_sqlserver.txt'
+BULK INSERT CustomerLogin FROM '{dataFilesPath}\customerlogin_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT SecurityQuestions FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\securityquestions_sqlserver.txt'
+BULK INSERT SecurityQuestions FROM '{dataFilesPath}\securityquestions_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT Employees FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\employees_sqlserver.txt'
+BULK INSERT Employees FROM '{dataFilesPath}\employees_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT Offices FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\offices_sqlserver.txt'
+BULK INSERT Offices FROM '{dataFilesPath}\offices_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT OrderDetails FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\orderdetails_sqlserver.txt'
+BULK INSERT OrderDetails FROM '{dataFilesPath}\orderdetails_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT Orders FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\orders_sqlserver.txt'
+BULK INSERT Orders FROM '{dataFilesPath}\orders_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT Payments FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\payments_sqlserver.txt'
+BULK INSERT Payments FROM '{dataFilesPath}\payments_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT Categories FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\categories_sqlserver.txt'
+BULK INSERT Categories FROM '{dataFilesPath}\categories_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 
-BULK INSERT Products FROM 'D:\Dev\Security\Forks\WebGoat.NET\WebGoat\DB_Scripts\datafiles\products_sqlserver.txt'
+BULK INSERT Products FROM '{dataFilesPath}\products_sqlserver.txt'
 WITH (FIELDTERMINATOR = '|', ROWTERMINATOR = '\n')
 
 

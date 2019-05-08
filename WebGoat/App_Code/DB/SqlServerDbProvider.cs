@@ -481,7 +481,9 @@ namespace OWASP.WebGoat.NET.App_Code.DB
 
                     // Delete and insert seed data
                     scriptPath = Path.Combine(Settings.RootDir, DbConstants.DB_LOAD_SQLSERVER_SCRIPT);
+                    string dataFilesPath = Path.Combine(Settings.RootDir, DbConstants.DATA_FILES_DIR);
                     script = File.ReadAllText(scriptPath);
+                    script = script.Replace("{dataFilesPath}", dataFilesPath);
                     cmd = new SqlCommand(script, connection);
                     cmd.ExecuteNonQuery();
 

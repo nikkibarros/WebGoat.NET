@@ -23,6 +23,7 @@ namespace OWASP.WebGoat.NET.App_Code.DB
 
         //DB Scripts
         private const string SCRIPT_DIR = "DB_Scripts";
+        public static readonly string DATA_FILES_DIR = Path.Combine(SCRIPT_DIR, "datafiles");
         public static readonly string DB_CREATE_MYSQL_SCRIPT = Path.Combine(SCRIPT_DIR, "create_webgoatcoins.sql");
         public static readonly string DB_CREATE_SQLSERVER_SCRIPT = Path.Combine(SCRIPT_DIR, "create_webgoatcoins_sqlserver.sql");
         public static readonly string DB_CREATE_SQLITE_SCRIPT = Path.Combine(SCRIPT_DIR, "create_webgoatcoins_sqlite3.sql");
