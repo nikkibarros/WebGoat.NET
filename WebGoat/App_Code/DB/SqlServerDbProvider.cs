@@ -510,8 +510,19 @@ namespace OWASP.WebGoat.NET.App_Code.DB
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    SqlCommand cmd = new SqlCommand("select * from information_schema.TABLES", connection);
-                    cmd.ExecuteNonQuery();
+
+                    // Check if database exists
+                    string script = "SELECT database_id FROM sys.databases WHERE Name = '" + _database + "'";
+                    SqlCommand cmd = new SqlCommand(script, connection);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        _connectionString = string.Format("Server={0};Database={1};Trusted_Connection=True;MultipleActiveResultSets=true;",
+                                                     _host,
+                                                     _database);
+                    }
+
                     connection.Close();
                 }
 
