@@ -26,6 +26,7 @@
                             Width="371px">
                             <asp:ListItem>Sqlite</asp:ListItem>
                             <asp:ListItem>MySql</asp:ListItem>
+                            <asp:ListItem>SqlServer</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>

@@ -85,6 +85,18 @@
   <ItemGroup>
     <Content Include="Content\ForgotPassword.aspx" />
     <Content Include="Content\UploadPathManipulation.aspx" />
+    <None Include="DB_Scripts\datafiles\customers_sqlserver.txt" />
+    <None Include="DB_Scripts\create_webgoatcoins_sqlserver.sql" />
+    <None Include="DB_Scripts\datafiles\categories_sqlserver.txt" />
+    <None Include="DB_Scripts\datafiles\customerlogin_sqlserver.txt" />
+    <None Include="DB_Scripts\datafiles\employees_sqlserver.txt" />
+    <None Include="DB_Scripts\datafiles\offices_sqlserver.txt" />
+    <None Include="DB_Scripts\datafiles\orderdetails_sqlserver.txt" />
+    <None Include="DB_Scripts\datafiles\orders_sqlserver.txt" />
+    <None Include="DB_Scripts\datafiles\payments_sqlserver.txt" />
+    <None Include="DB_Scripts\datafiles\products_sqlserver.txt" />
+    <None Include="DB_Scripts\datafiles\securityquestions_sqlserver.txt" />
+    <None Include="DB_Scripts\load_webgoatcoins_sqlserver.sql" />
     <Content Include="Global.asax" />
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
@@ -512,6 +524,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\CustomerLoginData.cs" />
+    <Compile Include="App_Code\DB\SqlServerDbProvider.cs" />
     <Compile Include="Content\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

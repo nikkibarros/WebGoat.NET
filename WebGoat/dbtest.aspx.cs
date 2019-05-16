@@ -75,6 +75,7 @@ namespace OWASP.WebGoat.NET
             Settings.CurrentDbProvider = DbProviderFactory.Create(configFile);
             Settings.CurrentDbProvider.RecreateGoatDb();
 
+            // TODO: Should test for the connection to the newly setup database - if recreate failed, should not display success
             if (Settings.CurrentDbProvider.TestConnection())
             {
                 labelRebuildSuccess.Text = "Database Rebuild Successful!";
