@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F42F0F80-3204-4C49-83DC-2B2E47E3D013}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotNetUnitTests</RootNamespace>
+    <AssemblyName>DotNetUnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SaxonPE9.8N\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SaxonPE9.8N\IKVM.OpenJDK.XML.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="saxon9pe, Version=9.8.0.3, Culture=neutral, PublicKeyToken=e1fdd002d5083fe6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SaxonPE9.8N\saxon9pe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\billion_laughs.xml" />
+    <Content Include="TestCases\HQLTestCases\DeleteUnsafeStringPlace.aspx" />
+    <Content Include="TestCases\HQLTestCases\Unsafe.aspx" />
+    <Content Include="TestCases\HQLTestCases\SafeParam.aspx" />
+    <Content Include="TestCases\HQLTestCases\DeleteSafeParam.aspx" />
+    <Content Include="TestCases\HQLTestCases\SafeParamSQL.aspx" />
+    <Content Include="TestCases\HQLTestCases\UnsafeSQL.aspx" />
+    <Content Include="TestCases\HQLTestCases\UnsafeHQLStringPlace.aspx" />
+    <Content Include="TestCases\HQLTestCases\UnsafeSQLStringPlace.aspx" />
+    <Content Include="TestCases\HQLTestCases\DeleteUnsafe.aspx" />
+    <Content Include="TestCases\HQLTestCases\SafeDefault.aspx" />
+    <Content Include="TestCases\XPathTestCases\XPathUnsafeEscape.aspx" />
+    <Content Include="TestCases\XPathTestCases\XPathUnsafePlaceholder.aspx" />
+    <Content Include="TestCases\XPathTestCases\XPathSafeList.aspx" />
+    <Content Include="TestCases\XPathTestCases\XPathUnsafeConcat.aspx" />
+    <Content Include="TestCases\XQueryTestCases\XQuerySafeList.aspx" />
+    <Content Include="TestCases\XQueryTestCases\XQuerySafeEscape.aspx" />
+    <Content Include="TestCases\XQueryTestCases\XQueryUnsafePlaceholder.aspx" />
+    <Content Include="TestCases\XQueryTestCases\XQuerySafeBind.aspx" />
+    <Content Include="TestCases\XQueryTestCases\XQueryUnsafeConcat.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlDictionaryReaderSafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlDictionaryReaderUnsafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XPathNavigatorSafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XPathNavigatorSafe452.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlTextReaderUnsafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XslCompiledTransformSafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlReaderUnsafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlTextReaderSafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XslCompiledTransformUnsafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlReaderSafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlNodeReaderSafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlDocumentUnsafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlNodeReaderSafeXmlReader.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlDocumentSafe.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlDocumentSafe452.aspx" />
+    <Content Include="TestCases\XXETestCases\XmlTextReaderSafe452.aspx" />
+    <Content Include="TestCases\XXETestCases\LINQXDocumentUnsafe.aspx" />
+    <Content Include="TestCases\XXETestCases\LINQXDocumentSafe.aspx" />
+    <Content Include="TestCases\XXETestCases\LINQXElementSafe.aspx" />
+    <EmbeddedResource Include="Mappings\Student.hbm.xml" />
+    <Content Include="App_Data\dbo.Student.data.sql" />
+    <Content Include="App_Data\dbo.Student.sql" />
+    <Content Include="App_Data\Sample.mdf" />
+    <Content Include="App_Data\Sample_log.ldf">
+      <DependentUpon>Sample.mdf</DependentUpon>
+    </Content>
+    <Content Include="codeview.aspx" />
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xqueryview.aspx" />
+    <Content Include="resources\students.xml" />
+    <Content Include="xpathview.aspx" />
+    <Content Include="xquery.aspx" />
+    <Content Include="xpath.aspx" />
+    <Content Include="nhibernate.aspx" />
+    <Content Include="resources\test.xsl" />
+    <Content Include="resources\xxe_attack.txt" />
+    <Content Include="resources\xxetest.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="resources\test.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="hqlview.aspx" />
+    <Content Include="xmlview.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="codeview.aspx.cs">
+      <DependentUpon>codeview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="codeview.aspx.designer.cs">
+      <DependentUpon>codeview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\HQLTestCasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\DeleteUnsafeStringPlace.aspx.cs">
+      <DependentUpon>DeleteUnsafeStringPlace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\DeleteUnsafeStringPlace.aspx.designer.cs">
+      <DependentUpon>DeleteUnsafeStringPlace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\Unsafe.aspx.cs">
+      <DependentUpon>Unsafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\Unsafe.aspx.designer.cs">
+      <DependentUpon>Unsafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\SafeParam.aspx.cs">
+      <DependentUpon>SafeParam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\SafeParam.aspx.designer.cs">
+      <DependentUpon>SafeParam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\DeleteSafeParam.aspx.cs">
+      <DependentUpon>DeleteSafeParam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\DeleteSafeParam.aspx.designer.cs">
+      <DependentUpon>DeleteSafeParam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\SafeParamSQL.aspx.cs">
+      <DependentUpon>SafeParamSQL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\SafeParamSQL.aspx.designer.cs">
+      <DependentUpon>SafeParamSQL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\UnsafeSQL.aspx.cs">
+      <DependentUpon>UnsafeSQL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\UnsafeSQL.aspx.designer.cs">
+      <DependentUpon>UnsafeSQL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\UnsafeHQLStringPlace.aspx.cs">
+      <DependentUpon>UnsafeHQLStringPlace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\UnsafeHQLStringPlace.aspx.designer.cs">
+      <DependentUpon>UnsafeHQLStringPlace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\UnsafeSQLStringPlace.aspx.cs">
+      <DependentUpon>UnsafeSQLStringPlace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\UnsafeSQLStringPlace.aspx.designer.cs">
+      <DependentUpon>UnsafeSQLStringPlace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\DeleteUnsafe.aspx.cs">
+      <DependentUpon>DeleteUnsafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\DeleteUnsafe.aspx.designer.cs">
+      <DependentUpon>DeleteUnsafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\SafeDefault.aspx.cs">
+      <DependentUpon>SafeDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\HQLTestCases\SafeDefault.aspx.designer.cs">
+      <DependentUpon>SafeDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\InvalidParameterException.cs" />
+    <Compile Include="TestCases\XPathTestCases\XPathTestCasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XPathTestCases\XPathUnsafeEscape.aspx.cs">
+      <DependentUpon>XPathUnsafeEscape.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XPathTestCases\XPathUnsafeEscape.aspx.designer.cs">
+      <DependentUpon>XPathUnsafeEscape.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XPathTestCases\XPathUnsafePlaceholder.aspx.cs">
+      <DependentUpon>XPathUnsafePlaceholder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XPathTestCases\XPathUnsafePlaceholder.aspx.designer.cs">
+      <DependentUpon>XPathUnsafePlaceholder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XPathTestCases\XPathSafeList.aspx.cs">
+      <DependentUpon>XPathSafeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XPathTestCases\XPathSafeList.aspx.designer.cs">
+      <DependentUpon>XPathSafeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XPathTestCases\XPathUnsafeConcat.aspx.cs">
+      <DependentUpon>XPathUnsafeConcat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XPathTestCases\XPathUnsafeConcat.aspx.designer.cs">
+      <DependentUpon>XPathUnsafeConcat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQueryTestCasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQuerySafeList.aspx.cs">
+      <DependentUpon>XQuerySafeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQuerySafeList.aspx.designer.cs">
+      <DependentUpon>XQuerySafeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQuerySafeEscape.aspx.cs">
+      <DependentUpon>XQuerySafeEscape.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQuerySafeEscape.aspx.designer.cs">
+      <DependentUpon>XQuerySafeEscape.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQueryUnsafePlaceholder.aspx.cs">
+      <DependentUpon>XQueryUnsafePlaceholder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQueryUnsafePlaceholder.aspx.designer.cs">
+      <DependentUpon>XQueryUnsafePlaceholder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQuerySafeBind.aspx.cs">
+      <DependentUpon>XQuerySafeBind.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQuerySafeBind.aspx.designer.cs">
+      <DependentUpon>XQuerySafeBind.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQueryUnsafeConcat.aspx.cs">
+      <DependentUpon>XQueryUnsafeConcat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XQueryTestCases\XQueryUnsafeConcat.aspx.designer.cs">
+      <DependentUpon>XQueryUnsafeConcat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDictionaryReaderSafe.aspx.cs">
+      <DependentUpon>XmlDictionaryReaderSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDictionaryReaderSafe.aspx.designer.cs">
+      <DependentUpon>XmlDictionaryReaderSafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDictionaryReaderUnsafe.aspx.cs">
+      <DependentUpon>XmlDictionaryReaderUnsafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDictionaryReaderUnsafe.aspx.designer.cs">
+      <DependentUpon>XmlDictionaryReaderUnsafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XPathNavigatorSafe.aspx.cs">
+      <DependentUpon>XPathNavigatorSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XPathNavigatorSafe.aspx.designer.cs">
+      <DependentUpon>XPathNavigatorSafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XPathNavigatorSafe452.aspx.cs">
+      <DependentUpon>XPathNavigatorSafe452.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XPathNavigatorSafe452.aspx.designer.cs">
+      <DependentUpon>XPathNavigatorSafe452.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlTextReaderUnsafe.aspx.cs">
+      <DependentUpon>XmlTextReaderUnsafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlTextReaderUnsafe.aspx.designer.cs">
+      <DependentUpon>XmlTextReaderUnsafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XslCompiledTransformSafe.aspx.cs">
+      <DependentUpon>XslCompiledTransformSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XslCompiledTransformSafe.aspx.designer.cs">
+      <DependentUpon>XslCompiledTransformSafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlReaderUnsafe.aspx.cs">
+      <DependentUpon>XmlReaderUnsafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlReaderUnsafe.aspx.designer.cs">
+      <DependentUpon>XmlReaderUnsafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlTextReaderSafe.aspx.cs">
+      <DependentUpon>XmlTextReaderSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlTextReaderSafe.aspx.designer.cs">
+      <DependentUpon>XmlTextReaderSafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XslCompiledTransformUnsafe.aspx.cs">
+      <DependentUpon>XslCompiledTransformUnsafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XslCompiledTransformUnsafe.aspx.designer.cs">
+      <DependentUpon>XslCompiledTransformUnsafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlReaderSafe.aspx.cs">
+      <DependentUpon>XmlReaderSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlReaderSafe.aspx.designer.cs">
+      <DependentUpon>XmlReaderSafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlNodeReaderSafe.aspx.cs">
+      <DependentUpon>XmlNodeReaderSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlNodeReaderSafe.aspx.designer.cs">
+      <DependentUpon>XmlNodeReaderSafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDocumentUnsafe.aspx.cs">
+      <DependentUpon>XmlDocumentUnsafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDocumentUnsafe.aspx.designer.cs">
+      <DependentUpon>XmlDocumentUnsafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlNodeReaderSafeXmlReader.aspx.cs">
+      <DependentUpon>XmlNodeReaderSafeXmlReader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlNodeReaderSafeXmlReader.aspx.designer.cs">
+      <DependentUpon>XmlNodeReaderSafeXmlReader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDocumentSafe.aspx.cs">
+      <DependentUpon>XmlDocumentSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDocumentSafe.aspx.designer.cs">
+      <DependentUpon>XmlDocumentSafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDocumentSafe452.aspx.cs">
+      <DependentUpon>XmlDocumentSafe452.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlDocumentSafe452.aspx.designer.cs">
+      <DependentUpon>XmlDocumentSafe452.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlTextReaderSafe452.aspx.cs">
+      <DependentUpon>XmlTextReaderSafe452.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XmlTextReaderSafe452.aspx.designer.cs">
+      <DependentUpon>XmlTextReaderSafe452.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\LINQXDocumentUnsafe.aspx.cs">
+      <DependentUpon>LINQXDocumentUnsafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\LINQXDocumentUnsafe.aspx.designer.cs">
+      <DependentUpon>LINQXDocumentUnsafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\LINQXDocumentSafe.aspx.cs">
+      <DependentUpon>LINQXDocumentSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\LINQXDocumentSafe.aspx.designer.cs">
+      <DependentUpon>LINQXDocumentSafe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\XXETestCasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xqueryview.aspx.cs">
+      <DependentUpon>xqueryview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xqueryview.aspx.designer.cs">
+      <DependentUpon>xqueryview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xpathview.aspx.cs">
+      <DependentUpon>xpathview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xpathview.aspx.designer.cs">
+      <DependentUpon>xpathview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xquery.aspx.cs">
+      <DependentUpon>xquery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xquery.aspx.designer.cs">
+      <DependentUpon>xquery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xpath.aspx.cs">
+      <DependentUpon>xpath.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xpath.aspx.designer.cs">
+      <DependentUpon>xpath.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nhibernate.aspx.cs">
+      <DependentUpon>nhibernate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nhibernate.aspx.designer.cs">
+      <DependentUpon>nhibernate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="hqlview.aspx.cs">
+      <DependentUpon>hqlview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hqlview.aspx.designer.cs">
+      <DependentUpon>hqlview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xmlview.aspx.cs">
+      <DependentUpon>xmlview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xmlview.aspx.designer.cs">
+      <DependentUpon>xmlview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\LINQXElementSafe.aspx.cs">
+      <DependentUpon>LINQXElementSafe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCases\XXETestCases\LINQXElementSafe.aspx.designer.cs">
+      <DependentUpon>LINQXElementSafe.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RunWith45|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53282</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53282/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
